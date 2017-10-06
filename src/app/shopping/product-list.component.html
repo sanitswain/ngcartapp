@@ -1,0 +1,29 @@
+<h3>Available Products</h3>
+<!--
+  table-striped: For coloring odd even rows in gray
+  table-bordered: For table border
+-->
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Name</th><th>Price</th><th>Action</th>
+  </tr>
+
+  <!--
+    ngFor is from CommonModule. This html is registered in ShoppingModule
+    so we need to import CommonModule inside ShoppingModule.
+  -->
+
+  <tr *ngFor="let product of products">
+    <td> <a [routerLink]="['/details', product.id]"> {{product.pname}} </a></td>
+    <td>{{product.price}}</td>
+    <td> <button class="btn btn-primary btn-xs" (click)="addItemToCart(product)">Add to cart</button> </td>
+    <!--
+      btn-primary: For blue colored button
+    -->
+  </tr>
+
+  <tr *ngIf="products.length == 0">
+    <td colspan="3" style="text-align: center;">No products available</td>
+  </tr>
+
+</table>

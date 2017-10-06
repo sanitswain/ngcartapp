@@ -1,0 +1,32 @@
+<div style="margin-left: 20px;">
+  <h3>Manage products</h3>
+
+  <form class="well">
+    <input name="pname" placeholder="Enter product name" [(ngModel)]="formProduct.pname">
+    <input name="price" placeholder="Enter product price" [(ngModel)]="formProduct.price">
+    <input name="description" placeholder="Enter product description" [(ngModel)]="formProduct.description">
+    <button class="btn btn-primary btn-xs" (click)="saveProduct()">Save</button>
+  </form>
+
+  <table class="table table-bordered table-striped" style="width: 50%;">
+    <tr>
+      <th>Code</th><th>Name</th><th>Price</th><th>Description</th><th></th>
+    </tr>
+
+    <tr *ngFor="let product of mgproducts; let i=index">
+      <td>{{product.id}}</td>
+      <td>{{product.pname}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.description}}</td>
+      <td>
+        <button class="btn btn-danger btn-xs" (click)="removeProduct(product.id, i)">X</button>
+        <button class="btn btn-success btn-xs" (click)="editProduct(product)">Edit</button>
+      </td>
+    </tr>
+
+    <tr *ngIf="mgproducts.length == 0">
+      <td colspan="4" style="text-align: center;">No products available</td>
+    </tr>
+
+  </table>
+</div>
