@@ -14,12 +14,14 @@ import {RouterModule} from "@angular/router";
     { path: 'details/:id', component:DetailsComponent }
   ])]
   /**
-   * We have used ngFor in our template and this is from CommonModule, so we need to import them here.
+   * 1) We have used ngFor in our template which from CommonModule, so we need to import CommonModule here.
    *
-   * In cart-items component we have our quantity is a text field
-   * that is configured with two-way binding. Whenever the value in text field is changed that will directly reflect to the service
-   * contained model object and other way model value will also be rendered to this textfield. Two-way binding is only supported
-   * for form elements/components so we have imported FormsModule here.
+   * 2) In cart-items component we have our quantity is a text field
+   *    that is configured with two-way binding. Whenever the value in text field is changed that will directly reflect to the service
+   *    contained model object and other way model value will also be rendered to this textfield. Two-way binding is only supported
+   *    for form elements/components so we have imported FormsModule here.
+   *
+   * 3) To configure route mapping in root module use RouterModule.forRoot() and for featured module use RouterModule.forChild().
    */
 })
 export class ShoppingModule{
